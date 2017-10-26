@@ -136,15 +136,15 @@ MainWindow::MainWindow(int width, int height, int fps, bool tcp)
     connect(startStop, SIGNAL(clicked()), this, SLOT(recordToggle()));
     buttonLayout->addWidget(startStop);
 
-    startStopShort = new QShortcut(QKeySequence(Qt::Key_R, this);
+    startStopShort = new QShortcut(QKeySequence(Qt::Key_R), this);
     connect(startStopShort, SIGNAL(activated()), this, SLOT(recordToggle()));
 
     QPushButton * quitButton = new QPushButton("Quit", this);
     connect(quitButton, SIGNAL(clicked()), this, SLOT(quit()));
     buttonLayout->addWidget(quitButton);
 
-    quitShort = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q, this);
-    connect(quitShort, SIGNAL(activated()), this, SLOT(quit()))
+    quitShort = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q), this);
+    connect(quitShort, SIGNAL(activated()), this, SLOT(quitNoMessage()));
 
     setLayout(wrapperLayout);
 
@@ -351,6 +351,13 @@ void MainWindow::quit()
         this->close();
     }
 }
+
+void MainWindow::quitNoMessage()
+{
+   if(recording) recordToggle();
+   this->close();
+}
+
 
 void MainWindow::timerCallback()
 {

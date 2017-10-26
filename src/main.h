@@ -60,6 +60,7 @@ class MainWindow : public QWidget
         void timerCallback();
         void recordToggle();
         void quit();
+	void quitNoMessage();
         void fileBrowse();
         void dateFilename();
         void setExposure();
@@ -73,6 +74,8 @@ class MainWindow : public QWidget
         QImage rgbImage;
         bool recording;
         QPushButton * startStop;
+	QShortcut * startStopShort;
+	QShortcut * quitShort;
         QPushButton * browseButton;
         QPushButton * dateNameButton;
         QCheckBox * autoExposure;
