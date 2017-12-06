@@ -27,6 +27,7 @@
 #include <QPushButton>
 #include <QFileDialog>
 #include <QPainter>
+#include <QShortcut>
 
 #include <locale>
 #include <string>
